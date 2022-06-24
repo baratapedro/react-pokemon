@@ -1,7 +1,7 @@
-import { backdropClasses, Card, CardContent, CardMedia } from "@mui/material";
+import { Card, CardContent, CardMedia } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { IPokemonData } from "../../interfaces/IPokemonData";
-import { GlobalStylesProps } from "@mui/material/GlobalStyles"
+
 import { useNavigate } from "react-router-dom";
 
 import { ToastContainer, toast } from 'react-toastify';
