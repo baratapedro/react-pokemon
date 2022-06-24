@@ -1,0 +1,308 @@
+.card {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    height: 25rem;
+    width: 20rem;
+    display: flex;
+    border-radius: 5px;
+    border: 1px solid var(--gray-400);
+}
+
+.card h2 {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.card span {
+    font-weight: normal;
+}
+
+.card img {
+    height: 14rem;
+    width: 16rem;
+    align-self: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    padding:0 1rem;
+}
+
+.buttons button {
+    border: none;
+    background: transparent;
+    color: var(--gray-800);
+    font-weight: bold;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    border: 1px solid var(--gray-800);
+    border-radius: 5px;
+
+    transition: all 0.2s;
+
+}
+
+.buttonLoggedIn {
+    cursor: pointer;
+}
+
+.info .buttonLoggedIn:hover:after {
+    content: 'More info'
+}
+
+.addToTeam .buttonLoggedIn:hover:before {
+    content: 'Add to team';
+}
+
+.buttonLoggedIn:hover {
+    color: var(--yellow-500);
+    background: var(--blue-500);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.types {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+.grass {
+    background: var(--grassType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.poison {
+    background: var(--poisonType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.fire {
+    background: var(--fireType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.flying {
+    background: var(--flyingType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.water {
+    background: var(--waterType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.bug {
+    background: var(--bugType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.normal {
+    background: var(--normalType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.electric {
+    background: var(--electricType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.ground {
+    background: var(--groundType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.fairy {
+    background: var(--fairyType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.fighting {
+    background: var(--fightingType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.psychic {
+    background: var(--psychicType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.rock {
+    background: var(--rockType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.steel {
+    background: var(--steelType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.ice {
+    background: var(--iceType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.ghost {
+    background: var(--ghostType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.dragon {
+    background: var(--dragonType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+.dark {
+    background: var(--darkType);
+    width: 5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+}
+
+@media (max-width: 720px) {
+    .card {
+        height: 20rem;
+        width: 16rem;
+    }
+
+    .content {
+        gap: .5rem;
+    }
+
+    .card img {
+        height: 13rem;
+        width: 15rem;
+    }
+}

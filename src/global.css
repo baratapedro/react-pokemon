@@ -1,0 +1,56 @@
+:root {
+    --white: #ffffff;
+    --gray-100: #e1e1e6;
+    --gray-300: #c4c4cc;
+    --gray-400: #8d8d99;
+    --gray-600: #323238;
+    --gray-700: #29292e;
+    --gray-800: #202024;
+    --gray-900: #121214;
+
+    --blue-500: #2a75bb;
+    --blue-700: #3c5aa6;
+
+    --yellow-500: #eba417;
+    --yellow-300: #feb72a;
+
+    --red-500: #f75a68;
+
+    --grassType: #9bcc50;
+    --poisonType: #b97fc9;
+    --fireType: #fd7d24;
+    --flyingType: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+    --waterType: #4592c4;
+    --bugType: #729f3f;
+    --normalType: #a4acaf;
+    --electricType: #eed535;
+    --groundType: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+    --fairyType: #fdb9e9;
+    --fightingType: #d56723;
+    --psychicType: #f366b9;
+    --rockType: #a38c21;
+    --steelType: #9eb7b8;
+    --iceType: #51c4e7;
+    --ghostType: #7b62a3;
+    --dragonType: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+    --darkType: #707070;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--gray-100);
+    color: var(--gray-900);
+    -webkit-font-smoothing: antialiased;
+}
+
+body, input, textarea, buttom {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}

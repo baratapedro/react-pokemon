@@ -1,0 +1,80 @@
+.containerLoggedOut {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 20px;
+    justify-items: center;
+    margin: 20px 0 20px;
+    position: relative;
+    opacity: 0.2;
+}
+
+.containerLoggedIn {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 20px;
+    justify-items: center;
+    margin: 20px 0 20px;
+    position: relative;
+}
+
+.containerSelectedPokemon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 2rem;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+}
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    gap: 2rem;
+}
+
+
+@media (max-width: 1600px) {
+    .containerLoggedIn {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .containerLoggedOut {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 1280px) {
+    .containerLoggedIn {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .containerLoggedOut {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 980px) {
+    .containerLoggedIn {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .containerLoggedOut {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .containerLoggedIn {
+        grid-template-columns: 1fr;
+    }
+
+    .containerLoggedOut {
+        grid-template-columns: 1fr;
+    }
+}
