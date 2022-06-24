@@ -8,11 +8,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { MagnifyingGlass, Plus } from "phosphor-react";
 
-
 import styles from './styles.module.css'
 import { ICredentials } from "../../interfaces/ICredential";
 import { PokemonModal } from "../PokemonModal";
-
 
 interface PokemonCardProps {
     pokemon: IPokemonData,
