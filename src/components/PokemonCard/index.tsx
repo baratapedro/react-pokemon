@@ -1,6 +1,6 @@
 import { backdropClasses, Card, CardContent, CardMedia } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { IPokemonData, IPokemonTypes } from "../../interfaces/IPokemonData";
+import { IPokemonData } from "../../interfaces/IPokemonData";
 import { GlobalStylesProps } from "@mui/material/GlobalStyles"
 import { useNavigate } from "react-router-dom";
 

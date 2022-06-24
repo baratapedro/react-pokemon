@@ -20,7 +20,6 @@ export function SearchPokemons({ pokemonsName, setValue,  allPokemons, setAllPok
 
     async function handleSearchSelectedPokemon() {        
             const selectedPokemon: IResults = pokemonList.find(pokemon => value == pokemon.name)!
-            console.log(selectedPokemon)
             const pokemonId: number = await axios.get(selectedPokemon?.url!).then(response => response.data.id)
             const listWithPokemonSelected = await axios.get<IPokemonList>(`https://pokeapi.co/api/v2/pokemon?offset=${pokemonId - 1}&limit=1`).then(response => response.data.results)
             const newPokemonsUrl = listWithPokemonSelected.map(pokemon => pokemon.url as string)
