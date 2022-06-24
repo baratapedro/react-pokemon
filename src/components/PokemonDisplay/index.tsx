@@ -65,7 +65,7 @@ export function PokemonDisplay({ userCredential, handleAddPokemonToTeam, pokemon
             <div className={allPokemons.length > 1 ? styles.containerLoggedIn : styles.containerSelectedPokemon}>
                 {
                     allPokemons.map(pokemon => {
-                        return <PokemonCard pokemon={pokemon} handleAddPokemonToTeam={handleAddPokemonToTeam} userCredential={userCredential} pokemonToTeam={pokemonToTeam}/>
+                        return <PokemonCard pokemon={pokemon} handleAddPokemonToTeam={handleAddPokemonToTeam} userCredential={userCredential} pokemonToTeam={pokemonToTeam} />
                     })
                 }
             </div>

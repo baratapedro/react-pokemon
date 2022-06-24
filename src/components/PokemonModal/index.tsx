@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
+import { Autocomplete, Box, TextField } from '@mui/material';
 import { IPokemonData } from '../../interfaces/IPokemonData';
 
 import styles from './styles.module.css'
@@ -13,6 +14,7 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    overflow: 'hidden'
   },
 };
 
@@ -26,7 +28,18 @@ interface PokemonModalProps {
 }
 
 export function PokemonModal({ modalIsOpen, closeModal, pokemon, pokemonsType }: PokemonModalProps) {
+
+  
+  const [value, setValue] = useState<string | null>(null)
+  const [movesList, setMovesList] = useState<string[]>(['', ''])
+
   const abilitiesClassName = `abilities${pokemon.abilities.length}`
+  
+
+  useEffect(() => {
+    const moves = pokemon.moves.map(move => move.move.name as string)
+    setMovesList(moves)
+  }, [])
 
   return (
     <Modal
@@ -63,6 +76,18 @@ export function PokemonModal({ modalIsOpen, closeModal, pokemon, pokemonsType }:
                 })
               }
             </div>
+          </div>
+          <div className={styles.autocomplete}>
+          <Autocomplete
+                disablePortal
+                options={movesList}
+                sx={{ width: 250 }}
+                renderInput={(params) => <TextField {...params} label="Moves" />}
+                onChange={(event: any, newValue: string | null) => setValue(newValue)}
+                freeSolo
+                className={styles.input}
+                ListboxProps={{style: { height: 150 }}}
+            />
           </div>
         </div>
       </div>
