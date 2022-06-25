@@ -28,6 +28,18 @@
    gap: 1rem;
 }
 
+.move {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.moveDescription {
+   width: 300px;
+    text-align: left;
+}
+
 .abilities {
     display: flex;
     font-weight: bold;

@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import { Autocomplete, Box, TextField } from '@mui/material';
-import { IPokemonData } from '../../interfaces/IPokemonData';
+import { IPokemonData, Move } from '../../interfaces/IPokemonData';
+import axios from 'axios'
 
 import styles from './styles.module.css'
+import { IMoves } from '../../interfaces/IMoves';
 
 const customStyles = {
   content: {
@@ -29,18 +31,33 @@ interface PokemonModalProps {
 
 export function PokemonModal({ modalIsOpen, closeModal, pokemon, pokemonsType }: PokemonModalProps) {
 
-  
+
   const [value, setValue] = useState<string | null>(null)
   const [movesList, setMovesList] = useState<string[]>(['', ''])
+  const [selectedMove, setSelectedMove] = useState<Move>({} as Move)
+  const [moveData, setMoveData] = useState<IMoves>()
 
   const abilitiesClassName = `abilities${pokemon.abilities.length}`
-  
 
   useEffect(() => {
     const moves = pokemon.moves.map(move => move.move.name as string)
     setMovesList(moves)
   }, [])
 
+  useEffect(() => {
+    const move = pokemon.moves.find(move => move.move.name == value) as Move
+    setSelectedMove(move)
+
+  }, [value])
+
+  useEffect(() => {
+    async function getMoveData() {
+      const move: IMoves = await axios.get(selectedMove.move.url).then(response => response.data)
+      setMoveData(move)
+    }
+    getMoveData()
+  }, [selectedMove])
+  console.log(moveData)
   return (
     <Modal
       isOpen={modalIsOpen}
@@ -77,18 +94,33 @@ export function PokemonModal({ modalIsOpen, closeModal, pokemon, pokemonsType }:
               }
             </div>
           </div>
-          <div className={styles.autocomplete}>
           <Autocomplete
-                disablePortal
-                options={movesList}
-                sx={{ width: 250 }}
-                renderInput={(params) => <TextField {...params} label="Moves" />}
-                onChange={(event: any, newValue: string | null) => setValue(newValue)}
-                freeSolo
-                className={styles.input}
-                ListboxProps={{style: { height: 150 }}}
-            />
-          </div>
+            disablePortal
+            options={movesList}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField {...params} label="Moves" />}
+            onChange={(event: any, newValue: string | null) => setValue(newValue)}
+            freeSolo
+            ListboxProps={{ style: { height: 150 } }}
+          />
+          {
+            value ? (
+              <>
+                <div className={styles.move}>
+                  <span className={styles[moveData?.type.name!]}>{moveData?.type.name}</span>
+                  <span>{moveData?.damage_class.name}</span>
+                </div>
+                <div className={styles.move}>
+                <span>Accuracy: {moveData?.accuracy == null ? '-' : moveData?.accuracy}</span>
+                  <span>Power: {moveData?.power == null ? '-' : moveData?.power}</span>
+                  <span>PP: {moveData?.pp}</span>
+                </div>
+                <span className={styles.moveDescription}>{moveData?.effect_entries[0].effect}</span>
+              </>
+            ) : (
+              <></>
+            )
+          }
         </div>
       </div>
 
