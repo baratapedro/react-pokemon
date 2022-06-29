@@ -104,14 +104,12 @@ export function MyTeamModal({ modalIsOpen, closeModal, pokemon, pokemonsType }: 
                                             <span className={styles[move.type.name]}>{move.type.name}</span>
                                             <Trash onClick={() => handleDeleteMove(move.name)} className={styles.delete} />
                                         </Typography>
-
                                     </AccordionSummary>
-
                                     <AccordionDetails>
                                         <Typography>
                                             <div className={styles.move}>
-                                                <span>Accuracy: {move.accuracy}</span>
-                                                <span>Power: {move.power}</span>
+                                                <span>Accuracy: {move.accuracy ? move.accuracy : '-'}</span>
+                                                <span>Power: {move.power ? move.power : '-'}</span>
                                                 <span>PP: {move.pp}</span>
                                             </div>
                                             {move.effect_entries[0].effect}
