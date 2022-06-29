@@ -7,18 +7,7 @@ import axios from 'axios'
 
 import styles from './styles.module.css'
 import { IMoves } from '../../interfaces/IMoves';
-
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    overflow: 'hidden'
-  },
-};
+import { X } from 'phosphor-react';
 
 Modal.setAppElement('#root');
 
@@ -57,15 +46,16 @@ export function PokemonModal({ modalIsOpen, closeModal, pokemon, pokemonsType }:
     }
     getMoveData()
   }, [selectedMove])
-  console.log(moveData)
+
   return (
     <Modal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
       contentLabel="pokémon"
-      style={customStyles}
+      className={styles.modal}     
     >
-      <div className={styles.container}>
+      <X className={styles.close} onClick={closeModal}/>
+      <div className={styles.container}>        
         <div className={styles.content}>
           <img src={pokemon.sprites?.front_default} alt={pokemon.name} className={styles.image} />
           <strong>{pokemon.name}</strong>

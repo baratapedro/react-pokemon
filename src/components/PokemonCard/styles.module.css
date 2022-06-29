@@ -67,6 +67,10 @@
     gap: 1rem;
 }
 
+.content strong {
+    font-size: 1.5rem;
+}
+
 .types {
     display: flex;
     align-items: center;
@@ -304,5 +308,12 @@
     .card img {
         height: 13rem;
         width: 15rem;
+    }
+}
+
+@media (max-width: 540px) {
+    .card img {
+    height: 10rem;
+    width: 11rem;
     }
 }

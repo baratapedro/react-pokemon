@@ -1,11 +1,20 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .containerLoggedOut {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-row-gap: 20px;
     justify-items: center;
-    margin: 20px 200px 20px;
+    margin: 20px 0 20px;
     position: relative;
     opacity: 0.2;
+
+    column-gap: 3rem;
+    max-width: 1280px;
 }
 
 .containerLoggedIn {
@@ -13,8 +22,10 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-row-gap: 20px;
     justify-items: center;
-    margin: 20px 200px 20px;
+    margin: 20px 0 20px;
     position: relative;
+    column-gap: 3rem;
+    max-width: 1280px;
 }
 
 @media (max-width: 1600px) {

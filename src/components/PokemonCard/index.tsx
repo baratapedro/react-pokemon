@@ -86,7 +86,7 @@ export function PokemonCard({ pokemon, handleAddPokemonToTeam, userCredential, p
                 image={pokemon.sprites!.front_default}
             />
             <CardContent className={styles.content}>
-                <h2>{pokemon.name}</h2>
+                <strong>{pokemon.name}</strong>
                 <div className={styles.types}>
                     {
                         pokemonsType.map(type => {

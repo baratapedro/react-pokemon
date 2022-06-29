@@ -19,26 +19,30 @@ export function MyTeamDisplay({ saveUserCredentials, userCredential, pokemonToTe
     const pokemonTeam = [{}, {}, {}, {}, {}, {}]
 
     return userCredential ? (
-        <div className={styles.containerLoggedIn}>
-            {
-                pokemonToTeam.map(pokemon => {
-                    if (!pokemon.name) {
-                        return <MyTeamCard  pokemon={pokemon} image={interrogation}  pokemonToTeam={pokemonToTeam} userCredential={userCredential} setPokemonToTeam={setPokemonToTeam}/>
-                    } else {
-                        return <MyTeamCard  pokemon={pokemon} image={pokemon.sprites?.front_default} name={pokemon.name} pokemonToTeam={pokemonToTeam} userCredential={userCredential} setPokemonToTeam={setPokemonToTeam}/>
-                    }
+        <main className={styles.main}>
+            <div className={styles.containerLoggedIn}>
+                {
+                    pokemonToTeam.map(pokemon => {
+                        if (!pokemon.name) {
+                            return <MyTeamCard pokemon={pokemon} image={interrogation} pokemonToTeam={pokemonToTeam} userCredential={userCredential} setPokemonToTeam={setPokemonToTeam} />
+                        } else {
+                            return <MyTeamCard pokemon={pokemon} image={pokemon.sprites?.front_default} name={pokemon.name} pokemonToTeam={pokemonToTeam} userCredential={userCredential} setPokemonToTeam={setPokemonToTeam} />
+                        }
 
 
-                })
-            }
-        </div>
+                    })
+                }
+            </div>
+        </main>
     ) : (
-        <div className={styles.containerLoggedOut}>
-            {
-                pokemonTeam.map(pokemon => {
-                    return <MyTeamCard image={interrogation} userCredential={userCredential} pokemonToTeam={pokemonToTeam} setPokemonToTeam={setPokemonToTeam}/>
-                })
-            }
-        </div>
+        <main className={styles.main}>
+            <div className={styles.containerLoggedOut}>
+                {
+                    pokemonTeam.map(pokemon => {
+                        return <MyTeamCard image={interrogation} userCredential={userCredential} pokemonToTeam={pokemonToTeam} setPokemonToTeam={setPokemonToTeam} />
+                    })
+                }
+            </div>
+        </main>
     )
 }

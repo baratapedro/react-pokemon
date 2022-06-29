@@ -9,7 +9,10 @@
     height: 2rem;
     transition: filter 0.2s;
 
-    outline: 3px solid var(--yellow-500);
+}
+
+.contentLoggedIn:hover {
+    outline: 3px solid var(--yellow-300);
 }
 
 .contentLoggedOut:hover {
@@ -26,7 +29,6 @@
     height: 2rem;
     transition: filter 0.2s;
 
-    outline: 3px solid var(--yellow-500);
 }
 
     .contentLoggedIn img {
@@ -51,11 +53,6 @@
         filter: brightness(0.5);
     }
     
-    @media (max-width: 740px) {
-        .contentLoggedOut{
-            outline: 2px solid var(--yellow-500);
-        }
-    }
 
     @media (max-width: 480px) {
         .contentLoggedIn {
@@ -67,9 +64,7 @@
     min-width: 10rem;
     border-radius: 50px;
     height: 1.5rem;
-    transition: filter 0.2s;
-
-    outline: 2px solid var(--yellow-500);        
+    transition: filter 0.2s;      
         }
 
         .contentLoggedIn img {

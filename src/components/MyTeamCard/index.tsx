@@ -1,3 +1,4 @@
+import React from 'react'
 import { Card, CardContent, CardMedia } from "@mui/material";
 import { ICredentials } from "../../interfaces/ICredential";
 import { IPokemonData } from "../../interfaces/IPokemonData";
@@ -6,6 +7,7 @@ import { Trash } from "phosphor-react";
 
 import styles from './styles.module.css'
 import { useEffect, useState } from "react";
+import { MyTeamModal } from '../MyTeamModal';
 
 interface MyTeamCardProps {
     pokemon?: IPokemonData,
@@ -19,6 +21,15 @@ interface MyTeamCardProps {
 export function MyTeamCard({ pokemon, image, name, pokemonToTeam, userCredential, setPokemonToTeam }: MyTeamCardProps) {
     const [buttonStyle, setButtonStyle] = useState('')
     const [buttonDisabled, setButtonDisabled] = useState(true)
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
 
     useEffect(() => {
         if (userCredential) {
@@ -53,7 +64,7 @@ export function MyTeamCard({ pokemon, image, name, pokemonToTeam, userCredential
                 image={image}
             />
             <CardContent className={styles.content}>
-                <h2>{name}</h2>
+                <strong>{name}</strong>
                 <div className={styles.types}>
                     {
                         pokemonsType?.map(type => (
@@ -61,7 +72,9 @@ export function MyTeamCard({ pokemon, image, name, pokemonToTeam, userCredential
                         ))
                     }
                 </div>
+                <button className={styles[buttonStyle]} onClick={openModal}>Moves</button>
             </CardContent>
+            <MyTeamModal modalIsOpen={modalIsOpen} closeModal={closeModal} pokemon={pokemon} pokemonsType={pokemonsType}/>
         </Card>
     ) : (
         pokemonToTeam.length < 7 ? (
