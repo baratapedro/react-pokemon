@@ -29,8 +29,6 @@ export function MyTeamDisplay({ saveUserCredentials, userCredential, pokemonToTe
                             } else {
                                 return <MyTeamCard pokemon={pokemon} image={pokemon.sprites?.front_default} name={pokemon.name} pokemonToTeam={pokemonToTeam} userCredential={userCredential} setPokemonToTeam={setPokemonToTeam} />
                             }
-    
-    
                         })
                     ) : (
                         <></>

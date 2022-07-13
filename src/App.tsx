@@ -18,7 +18,7 @@ import { IPokemonData } from "./interfaces/IPokemonData";
 export function App() {
   const [userCredential, setUserCredential] = useState<ICredentials | null>(null)
   const [cookies, setCookie, removeCookie] = useCookies(['cookie-name']);
-  const [pokemonToTeam, setPokemonToTeam] = useState<IPokemonData[]>([{}])
+  const [pokemonToTeam, setPokemonToTeam] = useState<IPokemonData[]>([{} as IPokemonData])
 
   const storedCredentials = cookies["cookie-name"]
 
