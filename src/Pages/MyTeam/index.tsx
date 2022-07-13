@@ -8,7 +8,7 @@ import styles from './styles.module.css'
 interface MyTeamProps {
     saveUserCredentials: (credentials: ICredentials) => void,
     userCredential: ICredentials | null,
-    pokemonToTeam: IPokemonData[],
+    pokemonToTeam?: IPokemonData[],
     setPokemonToTeam: React.Dispatch<React.SetStateAction<IPokemonData[]>>
 }
 

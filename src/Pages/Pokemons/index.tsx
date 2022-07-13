@@ -12,7 +12,7 @@ interface PokemonsProps {
     saveUserCredentials: (credentials: ICredentials) => void,
     userCredential: ICredentials | null,
     handleAddPokemonToTeam: (pokemon: IPokemonData) => void,
-    pokemonToTeam: IPokemonData[]
+    pokemonToTeam?: IPokemonData[]
 }
 
 

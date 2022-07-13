@@ -8,7 +8,7 @@ import styles from './styles.module.css'
 interface MyTeamProps {
     saveUserCredentials: (credentials: ICredentials) => void,
     userCredential: ICredentials | null,
-    pokemonToTeam: IPokemonData[],
+    pokemonToTeam?: IPokemonData[],
     setPokemonToTeam: React.Dispatch<React.SetStateAction<IPokemonData[]>>
 }
 
@@ -22,15 +22,20 @@ export function MyTeamDisplay({ saveUserCredentials, userCredential, pokemonToTe
         <main className={styles.main}>
             <div className={styles.containerLoggedIn}>
                 {
-                    pokemonToTeam.map(pokemon => {
-                        if (!pokemon.name) {
-                            return <MyTeamCard pokemon={pokemon} image={interrogation} pokemonToTeam={pokemonToTeam} userCredential={userCredential} setPokemonToTeam={setPokemonToTeam} />
-                        } else {
-                            return <MyTeamCard pokemon={pokemon} image={pokemon.sprites?.front_default} name={pokemon.name} pokemonToTeam={pokemonToTeam} userCredential={userCredential} setPokemonToTeam={setPokemonToTeam} />
-                        }
-
-
-                    })
+                    pokemonToTeam ? (
+                        pokemonToTeam.map(pokemon => {
+                            if (!pokemon.name) {
+                                return <MyTeamCard pokemon={pokemon} image={interrogation} pokemonToTeam={pokemonToTeam} userCredential={userCredential} setPokemonToTeam={setPokemonToTeam} />
+                            } else {
+                                return <MyTeamCard pokemon={pokemon} image={pokemon.sprites?.front_default} name={pokemon.name} pokemonToTeam={pokemonToTeam} userCredential={userCredential} setPokemonToTeam={setPokemonToTeam} />
+                            }
+    
+    
+                        })
+                    ) : (
+                        <></>
+                    )
+                    
                 }
             </div>
         </main>

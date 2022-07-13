@@ -17,7 +17,7 @@ export function Header({ userCredential, saveUserCredentials, handleLogout }: He
     return (
         <header className={styles.headerContainer}>
             <div className={styles.headerContent}>
-                <img src="/images/logo.png" alt="" className={styles.logo}/>
+                <img src="/images/logo.png" alt="Logo" className={styles.logo}/>
                 <nav>             
                 <ActiveLink activeClassName={styles.active} to={'/'} >
                         <a>Home</a>

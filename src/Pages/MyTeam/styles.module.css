@@ -19,12 +19,16 @@
 }
 
 
+@media (max-width: 1280px) {
+    .container {
+        position: fixed;
+    }
+}
+
 @media (max-width: 720px) {
     .container {
         width: 30rem;
-
         right: calc(50vw - 15rem);
-
         gap: 0;
     }
 
@@ -36,10 +40,10 @@
 }
 
 @media (max-width: 480px) {
-    .container {
-        width: 20rem;
-        right: calc(50vw - 10rem);
-    }
+   .container {
+    width: 100%;
+    right: 0;
+   }
 
     .container h1 {
         font-size: 1.5rem;

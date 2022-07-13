@@ -25,31 +25,45 @@ interface PokemonModalProps {
 export function MyTeamModal({ modalIsOpen, closeModal, pokemon, pokemonsType }: PokemonModalProps) {
     const [value, setValue] = useState<string | null>(null)
     const [movesList, setMovesList] = useState<string[]>(['', ''])
-    const [selectedMove, setSelectedMove] = useState<Move>({} as Move)
+    const [selectedMove, setSelectedMove] = useState<Move>()
     const [moveData, setMoveData] = useState<IMoves[]>([])
+
 
     useEffect(() => {
         const moves = pokemon.moves.map(move => move.move.name as string)
-        setMovesList(moves)
+        setMovesList(moves)      
     }, [])
 
     useEffect(() => {
         const move = pokemon.moves.find(move => move.move.name == value) as Move
-        setSelectedMove(move)
-
+        setSelectedMove(move)        
     }, [value])
 
     useEffect(() => {
         async function getMoveData() {
-            const move: IMoves = await axios.get(selectedMove.move.url).then(response => response.data)
-            setMoveData([...moveData, move])
+            if(selectedMove) {
+                const move: IMoves = await axios.get(selectedMove.move.url).then(response => response.data)
+                setMoveData([...moveData, move])
+            } else {
+                setMoveData([])
+            }            
         }
         getMoveData()
     }, [selectedMove])
 
+    useEffect(() => {
+        const savedMoveData = JSON.parse(localStorage.getItem(`${pokemon.name}` )!)
+        setMoveData(savedMoveData)
+    }, [modalIsOpen])
+
+    useEffect(() => {
+        localStorage.setItem(`${pokemon.name}`, JSON.stringify(moveData));
+    }, [moveData.length])
+
     function handleDeleteMove(selectedMove: string) {
         const newMoveSet = moveData.filter(move => move.name != selectedMove)
         setMoveData(newMoveSet)
+        localStorage.removeItem(`${pokemon.name}`)
     }
 
     return (
@@ -78,11 +92,11 @@ export function MyTeamModal({ modalIsOpen, closeModal, pokemon, pokemonsType }: 
                 </div>
                 <div className={styles.content}>
                     {
-                        moveData.length < 4 ? (
+                        moveData && moveData.length < 4 ? (
                             <Autocomplete
                                 disablePortal
                                 options={movesList}
-                                sx={{ width: 300 }}
+                                sx={{ width: 250 }}
                                 renderInput={(params) => <TextField {...params} label="Select your moves" />}
                                 onChange={(event: any, newValue: string | null) => setValue(newValue)}
                                 freeSolo
@@ -92,7 +106,7 @@ export function MyTeamModal({ modalIsOpen, closeModal, pokemon, pokemonsType }: 
                             <span>Click on skills to get more info</span>
                         )
                     }
-                    {
+                    { 
                         moveData.map(move => {
                             return (
                                 <Accordion

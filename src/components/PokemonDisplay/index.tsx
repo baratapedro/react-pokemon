@@ -14,7 +14,7 @@ import { IResults } from "../../interfaces/IResults";
 interface PokemonDisplayProps {
     userCredential: ICredentials | null,
     handleAddPokemonToTeam: (pokemon: IPokemonData) => void,
-    pokemonToTeam: IPokemonData[]
+    pokemonToTeam?: IPokemonData[]
 }
 
 export function PokemonDisplay({ userCredential, handleAddPokemonToTeam, pokemonToTeam }: PokemonDisplayProps) {

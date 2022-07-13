@@ -13,7 +13,7 @@ interface MyTeamCardProps {
     pokemon?: IPokemonData,
     image?: string,
     name?: string,
-    pokemonToTeam: IPokemonData[],
+    pokemonToTeam?: IPokemonData[],
     userCredential: ICredentials | null,
     setPokemonToTeam: React.Dispatch<React.SetStateAction<IPokemonData[]>>
 }
@@ -50,8 +50,10 @@ export function MyTeamCard({ pokemon, image, name, pokemonToTeam, userCredential
     const pokemonsType = pokemon?.types?.map(slot => slot.type?.name)
 
     function handleDeletePokemonFromTeam(poke: IPokemonData) {
-        const filteredPokemon = pokemonToTeam.filter(pokemon => pokemon.name != poke.name)
-        setPokemonToTeam(filteredPokemon)
+        if(pokemonToTeam) {
+            const filteredPokemon = pokemonToTeam.filter(pokemon => pokemon.name != poke.name)
+            setPokemonToTeam(filteredPokemon)
+        }  
     }
 
     return pokemon?.name ? (
@@ -77,7 +79,7 @@ export function MyTeamCard({ pokemon, image, name, pokemonToTeam, userCredential
             <MyTeamModal modalIsOpen={modalIsOpen} closeModal={closeModal} pokemon={pokemon} pokemonsType={pokemonsType}/>
         </Card>
     ) : (
-        pokemonToTeam.length < 7 ? (
+        pokemonToTeam && pokemonToTeam.length < 7 ? (
             <Card className={styles.card}>
                 <CardMedia
                     component="img"

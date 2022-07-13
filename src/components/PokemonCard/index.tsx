@@ -18,7 +18,7 @@ interface PokemonCardProps {
     pokemon: IPokemonData,
     handleAddPokemonToTeam: (pokemon: IPokemonData) => void,
     userCredential: ICredentials | null,
-    pokemonToTeam: IPokemonData[]
+    pokemonToTeam?: IPokemonData[]
 }
 
 export function PokemonCard({ pokemon, handleAddPokemonToTeam, userCredential, pokemonToTeam }: PokemonCardProps) {
@@ -48,7 +48,7 @@ export function PokemonCard({ pokemon, handleAddPokemonToTeam, userCredential, p
     const navigate = useNavigate();
 
     const handleClick = () => {
-        if (pokemonToTeam.length <= 6) {
+        if (pokemonToTeam && pokemonToTeam.length <= 6) {
             handleAddPokemonToTeam(pokemon)
             navigate("/myteam");
         } else {

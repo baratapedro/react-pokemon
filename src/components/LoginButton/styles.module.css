@@ -11,13 +11,13 @@
     border-radius: 5px;
     transition: background-color 0.2s;
     position: relative;
-
+    border: 1px solid var(--gray-800);
     height: 4rem;
 }
 
 .button:hover {
     font-weight: 700;
-    border: 2px solid var(--gray-800);
+    border: 1px solid var(--gray-800);
     background: var(--blue-500);
     color: var(--yellow-500);
 }
@@ -51,7 +51,7 @@
 }
 
 .button:hover .login {
-    border: 2px solid var(--gray-800);
+    border: 1px solid var(--gray-800);
     border-radius: 50px;
     overflow: visible;
     max-width: none;

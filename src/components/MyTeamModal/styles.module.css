@@ -303,3 +303,26 @@
     border-radius: 5px;
 }
 
+
+@media(max-width: 768px) {
+    .modal {
+        width: 100%;
+    }
+}
+
+@media(max-width: 540px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .image {
+        width: 15rem;
+        height: 15rem;
+    }
+
+    .accordion {
+        width: 250px;
+    }
+}
